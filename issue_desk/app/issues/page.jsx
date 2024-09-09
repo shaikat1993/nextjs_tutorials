@@ -1,9 +1,18 @@
 import React from 'react'
+import IssueList from './IssueList'
 
 export default function Issues() {
   return (
     <main>
-        <h2>Issues</h2>
+       <nav>
+        <div>
+          <h2>Issues</h2>
+          <p><small>Currently open issues</small></p>
+        </div>
+       </nav>
+
+
+       <IssueList />
     </main>
   )
 }
