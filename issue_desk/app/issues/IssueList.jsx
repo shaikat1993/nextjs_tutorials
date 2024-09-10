@@ -2,6 +2,10 @@ import Link from 'next/link'
 import React from 'react'
  //fetch data 
  async function getIssueList() {
+    // mock delay to imitate the loading scenario
+    await new Promise(resolve => setTimeout(resolve, 3000))
+
+    
     const res = await fetch('http://localhost:4000/issues', {
         next: {
             revalidate: 0 // use 0 to opt out of using cache

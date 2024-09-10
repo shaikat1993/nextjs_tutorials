@@ -1,5 +1,7 @@
 import React from 'react'
 import IssueList from './IssueList'
+import { Suspense } from 'react'
+import Loading from '../loading'
 
 export default function Issues() {
   return (
@@ -11,8 +13,9 @@ export default function Issues() {
         </div>
        </nav>
 
-
-       <IssueList />
+      <Suspense fallback = {<Loading/>}>
+        <IssueList />
+      </Suspense>
     </main>
   )
 }

@@ -22,6 +22,9 @@ export async function generateStaticParams() {
 // api call or to fetch data from json
 // just like the IssueList.jsx
 async function getIssueDetails(id) {
+    // mock delay to imitate the loading scenario
+    await new Promise(resolve => setTimeout(resolve, 3000))
+
     const res = await fetch('http://localhost:4000/issues/' + id, {
         next: {
             revalidate: 60
