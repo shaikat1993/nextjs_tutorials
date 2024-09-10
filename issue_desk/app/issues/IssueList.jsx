@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
  //fetch data 
  async function getIssueList() {
@@ -22,11 +23,13 @@ export default async function issueList() {
     <>
     {issues.map((issue) => (
         <div key = {issue.id} className = "card my-5">
+            <Link href={`/issues/${issue.id}`}>
             <h3>{issue.title}</h3>
             <p>{issue.body.slice(0,200)}...</p>
             <div className={`pill ${issue.priority}`}>
                 {issue.priority} priority
             </div>
+            </Link>
         </div>
     ))}
     {issues.length === 0 && (
@@ -35,3 +38,5 @@ export default async function issueList() {
     </>
   )
 }
+
+// /issues/{id} id is the id of any json object which we have in db.json file
